@@ -1,0 +1,5 @@
+
+class trendStatus:
+  TRENDING = "TRENDING"
+  RANGING = "RANGING"
+  NO_STATUS= "NO_STATUS"

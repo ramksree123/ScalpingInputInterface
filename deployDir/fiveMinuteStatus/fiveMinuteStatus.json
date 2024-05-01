@@ -1,0 +1,16 @@
+[
+  {
+    "tradingSymbol": "NSE:NIFTYBANK-INDEX",
+    "trendStatus": "TRENDING",
+    "trendDirection": "Up",
+    "lastStatusReceivedFromUser": null,
+    "lastDirectionReceivedFromUser": null,
+    "timeLastReadByUser": 0,
+    "timeLastReadByUserInStringFormat": null,
+    "timeLastReadBySystem": 0,
+    "timeLastReadBySystemInStringFormat": null,
+    "timeLastInputWasReceivedFromUser": 1714555507,
+    "timeLastInputWasReceivedFromUserInStringFormat": "2024-05-01 14:55:07",
+    "statusOfInputInterface": "Waiting For User Input"
+  }
+]
