@@ -2,8 +2,7 @@ import requests
 print("Hello World")
 print("How are you")
 i=1
-while i==1:
-    userInput=input("Please enter the trend 1. Up Trending 2. Down Trending 3. Ranging 4. Exit 5. Fetch Status?  ")
+def updateTrendStatus(userInput):
     if userInput=="1":
         r = requests.get("http://127.0.0.1:8000/apis/updateTrendStatus?updateTrendStatus=true&trendStatus=1")
         print(r.status_code)
@@ -30,4 +29,10 @@ while i==1:
         userInput="Ranging"
     else:
         userInput="Wrong Input"
-    print(userInput)
+    return userInput
+    
+while i==1:
+    userInput=input("Please enter the trend 1. Up Trending 2. Down Trending 3. Ranging 4. Exit 5. Fetch Status?  ")
+    requestStatus=updateTrendStatus(userInput=userInput)
+    print("The returned User Input is :",requestStatus)
+    
