@@ -2,8 +2,10 @@
     "port": 8000,
     "enableSSL": false,
     "sslPort": 8443,
-    "deployDir": "D:/scalpingInputInterface/ScalpingInputInterface/deployDir",
-    "logFileDir": "D:/AWS Files- Working Copy/ASK Algo Trading Company/deployDir/Logs"
+    "deployDir": "D:/ASK Algo Trading Scalping System/ASK Algo Scalping System/deployDir",
+    "logFileDir": "D:/ASK Algo Trading Scalping System/ScalpingServer/deployDir/Logs",
+    "configDir": "D:/ASK Algo Trading Scalping System/ASK Algo Scalping System/config",
+    "fiveMinStatusFile": "D:/ASK Algo Trading Scalping System/ASK Algo Scalping System/deployDir"
   }
   
   

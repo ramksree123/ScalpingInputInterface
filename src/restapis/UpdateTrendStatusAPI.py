@@ -9,9 +9,6 @@ class UpdateTrendStatusAPI(MethodView):
       trendStatusReceived=request.args['trendStatus']
       trendStatusReceivedFromUser=trendStatusFiveMinute.createFiveMinuteStatus(trendStatusReceived)
       trendStatusFiveMinute.saveFiveMinuteStatusToFile(trendStatusReceivedFromUser)
-
-
-    
       print("Can update Trend Status",trendStatusReceived)
       return(trendStatusReceivedFromUser[0].__dict__)
 

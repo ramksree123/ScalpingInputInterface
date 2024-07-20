@@ -1,5 +1,5 @@
 
 class trendDirection:
-  UP = "Up"
-  DOWN = "Down"
-  NO_DIRECTION = "No Direction"
+  UP = "UP"
+  DOWN = "DOWN"
+  NO_DIRECTION = "NO DIRECTION"

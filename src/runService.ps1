@@ -1,0 +1,2 @@
+Write-Host "Starting Five Minute Status Collecting Service From src Folder"
+& C:/Users/ADMIN/AppData/Local/Programs/Python/Python39/python.exe "d:/ASK Algo Trading Scalping System/ScalpingServer/src/main.py"

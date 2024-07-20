@@ -25,6 +25,31 @@ def initLoggingConfg(filepath):
   format = "%(asctime)s: %(message)s"
   logging.basicConfig(filename=filepath, format=format, level=logging.INFO, datefmt="%Y-%m-%d %H:%M:%S")
 
+
+
+# def extendableLogger(logName,fileName,level=logging.INFO):
+#   handler=logging.FileHandler(filename=fileName)
+#   handler.setFormatter(logging.Formatter('[%(asctime)s] %(levelname)s %(message)s'))
+#   specifiedLogger=logging.getLogger(logName)
+#   specifiedLogger.setLevel(level=level)
+#   specifiedLogger.addHandler(handler)
+#   return specifiedLogger
+
+# def google_call(self):
+#         response = "Call from google logger"
+#         google_logger = extendableLogger('google_logs', 'google.log')
+#         google_logger.info(response)
+#         return response
+# def python_call(self):
+#     response = "Call from Python Logger"
+#     python_logger = extendableLogger('scala_logs', 'scala.log')
+#     python_logger.info(response)
+#     return response
+
+
+
+  
+
 # Execution starts here
 serverConfig = getServerConfig()
 
@@ -38,11 +63,7 @@ if os.path.exists(logFileDir) == False:
   print("LogFile Directory " + logFileDir + " does not exist. Exiting the app.")
   exit(-1)
 
-print("Deploy  Directory = " + deployDir)
-print("LogFile Directory = " + logFileDir)
-print(datetime.now())
-print(Utils.getEpoch())
-print(Utils.convertEpochToDateTimeString(Utils.getEpoch()))
+
 initLoggingConfg(logFileDir + "/app.log")
 logging.info('Main.py:Application Started')
 logging.info('serverConfig => %s', serverConfig)
@@ -51,5 +72,6 @@ logging.info('serverConfig => %s', serverConfig)
 # logging.info('brokerAppConfig => %s', brokerAppConfig)
 
 port = serverConfig['port']
+port = 5000
 print("Running the app")
 app.run('127.0.0.1', port)

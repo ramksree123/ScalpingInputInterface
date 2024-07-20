@@ -20,6 +20,10 @@ class trendStatusFiveMinute:
     self.timeLastReadByUserInStringFormat = None
     self.timeLastReadBySystem = 0
     self.timeLastReadBySystemInStringFormat = None
+    self.systemTimeWhenLastReadyBySystem = 0
+    self.systemTimeWhenLastReadyBySystemInStringFormat = None
+    self.systemTimeWhenStatusWasFetched =0
+    self.systemTimeWhenStatusWasFetchedInStringFormat = None
     self.timeLastInputWasReceivedFromUser = 0
     self.timeLastInputWasReceivedFromUserInStringFormat = None
     self.statusOfInputInterface = statusOfInputInterface.STOPPED
@@ -53,7 +57,7 @@ class trendStatusFiveMinute:
   @staticmethod
   def saveFiveMinuteStatusToFile(trendStatusReceivedFromUser):
     serverConfig = getServerConfig()
-    tradesDir = os.path.join(serverConfig['deployDir'], 'fiveMinuteStatus')
+    tradesDir = os.path.join(serverConfig['fiveMinStatusFile'], 'fiveMinuteStatus')
     fiveMinuteStatusFilePath = os.path.join(tradesDir, 'fiveMinuteStatus.json')
     print(fiveMinuteStatusFilePath)
     with open(fiveMinuteStatusFilePath, 'w') as tFile:
@@ -63,9 +67,9 @@ class trendStatusFiveMinute:
   def loadFiveMinuteStatusFromFile():
     serverConfig = getServerConfig()
     print("Loading Five Minute Status From File")
-    tradesDir = os.path.join(serverConfig['deployDir'], 'fiveMinuteStatus')
+    tradesDir = os.path.join(serverConfig['fiveMinStatusFile'], 'fiveMinuteStatus')
     fiveMinuteStatusFilePath = os.path.join(tradesDir, 'fiveMinuteStatus.json')
-    
+    print("Five minuteStatusFilePath:",fiveMinuteStatusFilePath)
     trendStatusList = []
     tFile = open(fiveMinuteStatusFilePath, 'r')
     trendStatusFile = json.loads(tFile.read())
@@ -80,7 +84,7 @@ class trendStatusFiveMinute:
     return trendStatusList
   
 
-  @staticmethod
+  
   @staticmethod
   def convertJSONToFiveMinuteStatus(jsonData):
     fiveMinuteStatusObject = trendStatusFiveMinute(jsonData['tradingSymbol'])
@@ -93,6 +97,10 @@ class trendStatusFiveMinute:
     fiveMinuteStatusObject.timeLastReadByUserInStringFormat = jsonData['timeLastReadByUserInStringFormat']
     fiveMinuteStatusObject.timeLastReadBySystem = jsonData['timeLastReadBySystem']
     fiveMinuteStatusObject.timeLastReadBySystemInStringFormat = jsonData['timeLastReadBySystemInStringFormat']
+    fiveMinuteStatusObject.systemTimeWhenLastReadyBySystem = jsonData['systemTimeWhenLastReadyBySystem']
+    fiveMinuteStatusObject.systemTimeWhenLastReadyBySystemInStringFormat = jsonData['systemTimeWhenLastReadyBySystemInStringFormat']
+    fiveMinuteStatusObject.systemTimeWhenStatusWasFetched =jsonData['systemTimeWhenStatusWasFetched']
+    fiveMinuteStatusObject.systemTimeWhenStatusWasFetchedInStringFormat = jsonData['systemTimeWhenStatusWasFetchedInStringFormat']
     fiveMinuteStatusObject.timeLastInputWasReceivedFromUser = jsonData['timeLastInputWasReceivedFromUser']
     fiveMinuteStatusObject.timeLastInputWasReceivedFromUserInStringFormat = jsonData['timeLastInputWasReceivedFromUserInStringFormat']
     fiveMinuteStatusObject.statusOfInputInterface = jsonData['statusOfInputInterface']
